@@ -95,7 +95,7 @@ int main() {
         </h1>
 
         <a
-          href="https://github.com/akay41024"
+          href="https://github.com/akay41024/online-code-compiler"
           rel="noreferrer"
           target="_blank"
           className="ml-auto text-xl bg-black text-white dark:bg-white dark:text-black px-2 py-1 rounded flex justify-end items-center gap-1"
