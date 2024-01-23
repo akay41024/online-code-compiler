@@ -27,8 +27,6 @@ const Header = () => {
     }
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const options = {
@@ -43,7 +41,7 @@ const Header = () => {
         language: language,
         version: "latest",
         code: inputText,
-        input: null
+        input: null,
       },
     };
 
@@ -61,10 +59,10 @@ const Header = () => {
   };
 
   const languageChange = () => {
-    let e = document.getElementById('lan');
+    let e = document.getElementById("lan");
     setLanguage(e.value);
     console.log(e.value);
-    if(e.value === "cpp"){
+    if (e.value === "cpp") {
       setInputText(`// Your First C++ Program
 #include <iostream>      
 int main() {
@@ -72,11 +70,9 @@ int main() {
       return 0;
 }
    `);
-    }
-    else if(e.value === "python3"){
-      setInputText("print(\"Hello World!\")");
-    }
-    else if(e.value === "c"){
+    } else if (e.value === "python3") {
+      setInputText('print("Hello World!")');
+    } else if (e.value === "c") {
       setInputText(`#include <stdio.h>
 int main() {
   printf("Hello, World!");
@@ -84,8 +80,7 @@ int main() {
 }
       `);
     }
-
-  }
+  };
   return (
     <>
       <div className="flex flex-row justify-between p-5 text-3xl dark:bg-slate-900 dark:text-white">
@@ -118,18 +113,21 @@ int main() {
         </label>
       </div>
       <form onSubmit={handleSubmit} className="" method="post">
-        <Editor
-          className="mt-3 mx-4 text-black dark:bg-slate-900 dark:text-white shadow-2xl shadow-slate-700"
-          value={inputText}
-          onValueChange={(code) => setInputText(code)}
-          highlight={(code) => highlight(code, languages.js)}
-          padding={10}
-          style={{
-            fontFamily: '"Fira code", "Fira Mono", monospace',
-            fontSize: 18,
-            minHeight: "300px"
-          }}
-        />
+        <div className="h-[320px] overflow-y-auto">
+          <Editor
+            className="mt-3 mx-4 text-black dark:bg-slate-900 dark:text-white shadow-2xl shadow-slate-700"
+            value={inputText}
+            onValueChange={(code) => setInputText(code)}
+            highlight={(code) => highlight(code, languages.js)}
+            padding={10}
+            style={{
+              fontFamily: '"Fira code", "Fira Mono", monospace',
+              fontSize: 18,
+              minHeight: "300px",
+            }}
+          />
+        </div>
+
         {buttonClick ? (
           <button
             className="bg-red-500 py-2 px-4 rounded text-white mt-2 flex flex-row mr-6 ml-auto justify-center items-center gap-2"
@@ -194,7 +192,6 @@ int main() {
           </select>
         </div>
       </form>
-        
 
       {output && cpuTime && memory && (
         <div className="flex flex-col shadow-lg dark:bg-slate-900 border-2 rounded p-2 mt-6">
