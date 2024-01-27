@@ -11,6 +11,7 @@ import useTheme from "../context/theme";
 
 const Header = () => {
   const [inputText, setInputText] = useState('print("Made with Aasif khan")');
+  // const [input, setInput] = useState('');
   const [output, setOutput] = useState("");
   const [language, setLanguage] = useState("python3");
   const [cpuTime, setCpuTime] = useState("");
@@ -26,6 +27,11 @@ const Header = () => {
       lightTheme();
     }
   };
+
+  // const handleInput = (e) => {
+  //   setInput(e.target.value);
+  //   console.log(e.target.value);
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -161,7 +167,7 @@ int main() {
           </button>
         )}
 
-        <div className=" flex relative items-center ml-4">
+        <div className=" flex relative items-center ml-4 top-[-40px]">
           <svg
             width="16"
             height="16"
@@ -192,6 +198,23 @@ int main() {
           </select>
         </div>
       </form>
+      {/* <div className="h-[320px] overflow-y-auto flex justify-center items-start">
+        <textarea className="mt-3 mx-4 text-black dark:bg-slate-900 dark:text-white shadow-2xl shadow-slate-700" id="message" name="message" value={input} rows={10} cols={180} onChange={handleInput}/>
+      </div> */}
+      {/* <div className="h-[320px] overflow-y-auto relative top-[-30px]">
+          <Editor
+            className="mt-3 mx-4 text-black dark:bg-slate-900 dark:text-white shadow-2xl shadow-slate-700"
+            value={input}
+            onValueChange={(code) => setInput(code)}
+            highlight={(code) => highlight(code, languages.js)}
+            padding={10}
+            style={{
+              fontFamily: '"Fira code", "Fira Mono", monospace',
+              fontSize: 18,
+              minHeight: "200px",
+            }}
+          />
+        </div> */}
 
       {output && cpuTime && memory && (
         <div className="flex flex-col shadow-lg dark:bg-slate-900 border-2 rounded p-2 mt-6">
